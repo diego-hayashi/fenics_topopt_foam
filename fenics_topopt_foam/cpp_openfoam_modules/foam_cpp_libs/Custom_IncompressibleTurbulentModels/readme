@@ -1,0 +1,15 @@
+
+│ Read-me
+
+ ------------------------------------------------------------------------------
+
+ Adds new turbulence model to OpenFOAM, considering a material model:
+
+	'CustomSpalartAllmaras' = 'SpalartAllmaras' considering a material model
+
+ ------------------------------------------------------------------------------
+
+> In order to use the new turbulence model, add to 'controlDict':
+
+libs		("libCustom_IncompressibleTurbulentModels.so")
+

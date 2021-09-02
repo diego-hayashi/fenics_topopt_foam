@@ -1,0 +1,32 @@
+# CFF (Citation File Format) file
+
+cff-version: 1.2.0
+message: "If you use FEniCS TopOpt Foam or find it useful, please cite the corresponding article."
+authors:
+- family-names: "Alonso"
+  given-names: "Diego Hayashi"
+  orcid: "https://orcid.org/0000-0002-6032-9989"
+title: "FEniCS TopOpt Foam"
+url: "https://github.com/diego-hayashi/fenics_topopt_foam"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Alonso"
+    given-names: "Diego Hayashi"
+    orcid: "https://orcid.org/0000-0002-6032-9989"
+  - family-names: "Garcia Rodriguez"
+    given-names: "Luis Fernando"
+    orcid: "https://orcid.org/0000-0001-5445-1876"
+  - family-names: "Silva"
+    given-names: "Emı́lio Carlos Nelli"
+    orcid: "http://orcid.org/0000-0003-1715-1713"
+  doi: "TBD"
+  journal: "Structural and Multidisciplinary Optimization"
+  month: TBD
+  start: TBD # First page number
+  end: TBD # Last page number
+  title: "Flexible framework for fluid topology optimization with OpenFOAM® and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)"
+  issue: TBD
+  volume: TBD
+  year: 2021
+

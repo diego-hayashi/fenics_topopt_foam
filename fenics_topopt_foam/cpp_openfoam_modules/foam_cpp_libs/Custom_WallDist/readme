@@ -1,0 +1,15 @@
+
+│ Read-me
+
+ ------------------------------------------------------------------------------
+
+ Adds a new wall distance calculation method to OpenFOAM, which imports from an external file:
+
+	'Custom_externalImport'
+
+ ------------------------------------------------------------------------------
+
+> In order to use the new wall distance calculation method, add to 'controlDict':
+
+libs		("libCustom_wallDict.so")
+

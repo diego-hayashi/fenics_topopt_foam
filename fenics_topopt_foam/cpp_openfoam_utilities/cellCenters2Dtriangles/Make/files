@@ -1,0 +1,4 @@
+cellCenters2Dtriangles.C
+
+EXE = $(FOAM_USER_APPBIN)/cellCenters2Dtriangles
+

@@ -1,0 +1,10 @@
+# Override some linguist configurations
+
+# Reclassify `.C` files as C++
+ # * GitHub was recognizing some as C
+*.C linguist-language=C++
+
+# Reclassify `.H` files as C++
+ # * GitHub was recognizing at least one as Objective-C
+*.H linguist-language=C++
+

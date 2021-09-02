@@ -1,0 +1,599 @@
+/* 
+ ================================ CSS stylesheet ==============================
+*/
+
+/* ================================== HTML ================================== */
+
+/* HTML */
+/* Page container to adjust the size of the main content depending on the browser height */
+html {
+	position: relative;
+
+	/* Impose that the footer is in the bottom of the page if content is smaller than browser height */
+	/* https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height/38908284#38908284 */
+	min-height: 100vh;
+}
+
+/* ================================== Body ================================== */
+
+/* Body */
+body {
+
+	/* Font */
+	font-family: 'Fira Sans', sans-serif;
+	margin: 0;
+
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
+
+}
+
+/* Body -> Before */
+body:before {
+
+	/* Background image */
+/*	background-color: #f6f5f4; */
+/*	background-color: #ffffff;*/
+	background: linear-gradient(to bottom, #3584e433, #3584e433),url("fenics_topopt_foam/mesh_background.png") repeat;
+	background-size: 10px 10px cover;
+/*	background-blend-mode: lighten;*/
+
+	/* Adding blur to the background */
+	/* https://stackoverflow.com/questions/13168142/is-it-possible-to-use-webkit-filter-blur-on-background-image */
+
+	content: "";
+	position: absolute;
+
+	z-index: -1; /* Background behind the content */
+	height: 20%; width: 20%; /* Trick */
+
+	/* Blur configuration */
+	transform: scale(5);
+	transform-origin: top left;
+	filter: blur(2px);
+	-webkit-filter: blur(2px);
+
+}
+
+/* ================================= Header ================================= */
+
+/* Header */
+header {
+	background-color: #ffffffcc;
+}
+
+/* h1 header */
+h1 {
+
+	/* Font configurations */
+	font-size: 35px;
+	text-align: left;
+	font-weight: bold;
+	color: gray;
+
+	/* Margins */
+	margin-left: 20px;
+	margin-top: 12px;
+
+}
+
+/* ================================ Content ================================= */
+
+/* Row div */
+.row {  
+
+	/* Flexibility */
+	display: -ms-flexbox; /* IE10 */
+	display: flex;
+	-ms-flex-wrap: wrap; /* IE10 */
+	flex-wrap: wrap;
+
+	/* Margins */
+	margin : 0%;
+}
+
+/* Main div */
+.main {   
+
+	/* Flexibility */
+	-ms-flex: 70%; /* IE10 */
+	flex: 70%;
+
+	/* Padding */
+	padding: 20px;
+}
+
+/* ================================== Box =================================== */
+
+/* Box */
+.box {
+
+	/* Border */
+	border-width: 0px;
+	border-style: solid;
+	border-color: #77767b;
+	border-radius: 20px;	/* Rounded borders */
+
+	/* Colors */
+	color: #ffffff;
+	opacity: 1.0;
+
+	/* Display */
+	display: inline-block;
+	width: 340px;
+
+	/* Padding */
+	padding: 30px;
+	padding-right: 53px;
+	padding-left: 20px;
+
+	/* Margin */
+	margin: 30px;
+}
+
+/* Section box */
+.sectionbox {
+
+	/* Font configurations */
+	font-size: 18px;
+	text-align: left;
+	font-weight: bold;
+
+	/* Border */
+	border-width: 0px;
+	border-style: solid;
+	border-color: #77767b;
+	border-radius: 20px;	/* Rounded borders */
+
+	/* Colors */
+	color: #5e5c64;
+	opacity: 1.0;
+
+	/* Display */
+	display: inline-block;
+	width: 500px;
+
+	/* Padding */
+	padding: 30px;
+	padding-right: 53px;
+	padding-left: 20px;
+
+	/* Margin */
+	margin: 30px;
+}
+
+.centerbox {
+
+	/* Margin */
+	margin: 0;
+
+	/* Position */
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	/* Transform */
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+
+}
+
+/* ================================= Images ================================= */
+
+/* Image logo */
+.img_logo {
+
+	/* Size */
+	max-width: 500px;
+
+	/* Display */
+	display: block;
+
+	/* Margins */
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+/* ============================ Horizontal lines ============================ */
+
+/* Horizontal line (2) */
+.hr2 {
+
+	/* Size */
+	height: 2px;
+
+	/* Border */
+	border-width: 0;
+
+	/* Colors */
+	color: gray;
+	background-color: gray;
+
+	/* Margins */
+	margin-left: 0px;
+	margin-right: -30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* Bolder horizontal line */
+.hr_bolder {
+
+	/* Size */
+	height: 3px;
+
+	/* Border */
+	border-width: 0;
+
+	/* Colors */
+	color: gray;
+	background-color: gray;
+
+	/* Margins */
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+/* =============================== Link style =============================== */
+
+/* Link style */
+.link_style {
+
+	/* Link color */ 
+	color: #3465a4;
+
+	/* Remove underline in link */ 
+	/*https://support.xink.io/support/solutions/articles/1000270344-html-pro-how-to-removed-underline-in-email-link */
+	text-decoration: none; 
+}
+
+/* Link style -> Hover */
+.link_style:hover {
+	border-bottom: 1px dashed #3465a4;
+}
+
+/* ================================== Footer ================================ */
+/* Sticky footer with fixed navbar */
+/* https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/ */
+/* https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/ */
+/* view-source:https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/ */
+/* view-source:https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/sticky-footer-navbar.css */
+
+/* Footer */
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;      /* Footer height */
+
+	line-height: 20px; /* Vertically center the text there */
+	text-align: right; 
+
+	/* Background */
+	background: #f6f5f4cc; /* #ebf0f8; */
+}
+
+/* Footer text */
+.footer_text {
+	text-align: right; 
+	padding-left: 20px; /* padding-right: 20px; */
+	color: #4970d5;
+	font-size: 20px;
+	margin-top: 15px;
+/*	font-style: italic;*/
+}
+
+/* =============================== Buttons ================================== */
+
+/* btn-group */
+.btn-group {
+	width: 300px;
+}
+
+/* btn-group -> Button */
+.btn-group a {
+
+	/* Border */
+	border-width: 0px;
+	border-style: solid;
+	border-color: #2196F3;
+	border-radius: 8px;	/* Rounded borders */
+
+	/* Box shadow */
+	-webkit-box-shadow: 0 0 10px #77767b;
+	box-shadow: 0 0 10px #77767b;
+
+	/* Colors */
+	color: #005588;
+	background-color: #b7d7ff; /* #4970D5; */
+
+	/* Display */
+	display: inline-block;
+	width: 300px;
+
+	/* Padding */
+	padding: 8px 16px;
+
+	/* Text */
+	font-size: 20px;
+	vertical-align: middle;
+	overflow: hidden;
+	text-decoration: none;
+	text-align: left; /* center; */
+	white-space: nowrap;
+
+	/* Cursor */
+	cursor: pointer;
+
+	/* Margins */
+	margin-top: 8px;
+	margin-bottom: 8px;
+
+	/* Other options */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* btn-group -> Button -> Hover */
+.btn-group a:hover{
+
+	/* Colors */
+	color: #005588;
+	background-color: #99c1f1; /* #2196f3; */
+
+	/* Border */
+	border-color: #729fcf;
+
+	/* Box shadow */
+	-webkit-box-shadow: 0 0 10px #5e5c64;
+	box-shadow: 0 0 10px #5e5c64;
+
+}
+
+/* btn-group -> Button -> Active */
+.btn-group a:active {
+
+	/* Colors */
+	background-color: #62a0ea; /* #2196f3; */
+
+	/* Box shadow */
+	-webkit-box-shadow: 0 0 10px #deddda; /* #3d3846; */
+	box-shadow: 0 0 10px #3d3846;
+
+}
+
+/* btn-group -> Button -> Disabled */
+.btn-group a:disabled{
+
+	/* Cursor */
+	cursor: not-allowed;
+
+	/* Opacity */
+	opacity: 0.3;
+
+}
+
+/* ======================== Basic tooltip with an arrow ===================== */
+
+/* * Pop-up-like tooltip */
+
+.arrowtooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.arrowtooltip .tooltiptext {
+	visibility: hidden;
+	width: auto;
+	background-color: #2e3436;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px 10px;
+
+	/* Fixed font-size for the tooltip */
+	font-size: 20px;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: 150%; /* Tooltip below */
+	left: 50%;
+
+	/* Center tooltip horizontally */
+	/* https://stackoverflow.com/questions/21709674/how-to-center-a-tooltip-horizontally-on-top-of-a-link */
+	transform: translateX(-50%);
+
+	/* Don't ommit whitespaces */
+	white-space:nowrap;
+
+	/* Fade in tooltip - takes 0.25s to go from 0% to 100% opac: */
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
+.arrowtooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	bottom: 100%; /* Triangle below */
+	left: 50%;
+	margin-left: -5px;
+
+	/* Triangle */
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #2e3436 transparent; /* Triangle below */
+}
+
+.arrowtooltip:hover .tooltiptext {
+/*	opacity: 1;*/
+	opacity: 0.95;
+	visibility: visible;
+}
+
+.arrowtooltip2 {
+	position: relative;
+	display: inline-block;
+}
+
+.arrowtooltip2 .tooltiptext {
+	visibility: hidden;
+	width: auto;
+	background-color: #2e3436;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px 10px;
+	font-weight: normal;
+
+	/* Fixed font-size for the tooltip */
+	font-size: 20px;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: 130%; /* Tooltip below */
+	/* top: 120%; */ /* Tooltip below */
+	left: 50%;
+
+	/* Center tooltip horizontally */
+	/* https://stackoverflow.com/questions/21709674/how-to-center-a-tooltip-horizontally-on-top-of-a-link */
+	transform: translateX(-50%);
+
+	/* Don't ommit whitespaces */
+	white-space:nowrap;
+
+	/* Fade in tooltip - takes 0.25s to go from 0% to 100% opac: */
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
+.arrowtooltip2 .tooltiptext::after {
+	content: "";
+	position: absolute;
+	bottom: 100%; /* Triangle below */
+	left: 50%;
+	margin-left: -5px;
+
+	/* Triangle */
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #2e3436 transparent; /* Triangle below */
+}
+
+.arrowtooltip2:hover .tooltiptext {
+/*	opacity: 1;*/
+	opacity: 0.95;
+	visibility: visible;
+}
+
+.arrowtooltip3 {
+	position: relative;
+	display: inline-block;
+}
+
+.arrowtooltip3 .tooltiptext {
+	visibility: hidden;
+	width: auto;
+	background-color: #2e3436;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px 10px;
+
+	/* Fixed font-size for the tooltip */
+	font-size: 20px;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	bottom: 105%; /* Tooltip below */
+	left: 50%;
+
+	/* Center tooltip horizontally */
+	/* https://stackoverflow.com/questions/21709674/how-to-center-a-tooltip-horizontally-on-top-of-a-link */
+	transform: translateX(-50%);
+
+	/* Don't ommit whitespaces */
+	white-space:nowrap;
+
+	/* Fade in tooltip - takes 0.25s to go from 0% to 100% opac: */
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
+.arrowtooltip3 .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%; /* Triangle below */
+	left: 50%;
+	margin-left: -5px;
+
+	/* Triangle */
+	border-width: 5px;
+	border-style: solid;
+	border-color: #2e3436 transparent transparent transparent; /* Triangle below */
+}
+
+.arrowtooltip3:hover .tooltiptext {
+/*	opacity: 1;*/
+	opacity: 0.95;
+	visibility: visible;
+}
+
+/* ============================= Responsive layout ========================== */
+
+/* Responsive layout - when the screen is less than 700px wide */
+@media screen and (max-width: 700px) {
+
+	/* Image logo */
+	.img_logo {
+
+		/* Size */
+		max-width: 420px;
+
+		/* Margins */
+		margin-top: 10px;
+		margin-right: auto;
+	}
+
+	/* Main div */
+	.main {   
+		/* Padding */
+		padding: 0px;
+	}
+
+	/* Section box */
+	.sectionbox {
+
+		/* Display */
+		display: block;
+		width: 100%;
+
+		/* Padding */
+		padding: 0px;
+
+		/* Margin */
+		margin: 0px;
+	}
+
+	/* Box */
+	.box {
+
+		/* Padding */
+		padding-right: 20px;
+		padding-left: 0px;
+
+		/* Margin */
+		margin-right: 0px;
+		margin-left: 0px;
+	}
+}
+

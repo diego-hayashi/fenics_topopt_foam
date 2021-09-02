@@ -1,0 +1,20 @@
+
+│ Read-me
+
+ ------------------------------------------------------------------------------
+
+ Utility name: cellCenters2Dtriangles
+
+  Description: Write the position vector of the 2D cell centers to the corresponding time directory. 
+
+        Input: mesh
+
+       Output: "cellCenters2Dtriangles" file
+
+ ------------------------------------------------------------------------------
+
+> Based on:
+	https://bitbucket.org/peterjvonk/cellcenters
+
+ ------------------------------------------------------------------------------
+

@@ -1,0 +1,13 @@
+# Files/folders to ignore
+
+# Python byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# C++ folders
+lnInclude/
+linux64GccDPInt32Opt/

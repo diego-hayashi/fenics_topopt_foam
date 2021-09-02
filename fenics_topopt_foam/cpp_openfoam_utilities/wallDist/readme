@@ -1,0 +1,27 @@
+
+│ Read-me
+
+ ------------------------------------------------------------------------------
+
+ Utility name: wallDist
+
+  Description: Compute the wall distance for a given time.
+
+        Input: OpenFOAM input files
+
+      Outputs: Plots from the computation of the wall distance
+
+ ------------------------------------------------------------------------------
+
+> Based on:
+
+	"Test-wallDist":
+		OpenFOAM-7/applications/test/wallDist
+		-> The differences are:
+			1) "Test-wallDist" does not accept the user to
+		           choose the time in which the wall distance is computed.
+			2) "Test-wallDist" considers moving the points of the mesh
+			   from computed distances
+
+ ------------------------------------------------------------------------------
+

@@ -1,0 +1,14 @@
+# File that adds extra files for the installation, beyond the 'fenics_topopt_foam' folder
+ # https://github.com/pypa/sampleproject/blob/main/MANIFEST.in
+ # https://stackoverflow.com/questions/56144087/comments-in-python-manifest-in
+ # https://packaging.python.org/guides/using-manifest-in/
+
+# Include the read-me file
+include README.md
+
+# Include the license file
+include COPYING
+
+# Include the Git link
+include LINK.txt
+

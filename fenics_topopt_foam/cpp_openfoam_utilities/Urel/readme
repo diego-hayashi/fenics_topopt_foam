@@ -1,0 +1,29 @@
+
+│ Read-me
+
+ ------------------------------------------------------------------------------
+
+ Utility name: Urel
+
+  Description: Compute the relative velocity for MRF model, because the 
+               default generated result file is "U" (absolute velocity).
+
+        Input: "U" (absolute velocity) file computed from MRF model
+
+       Output: "Urel" (relative velocity) file
+
+ ------------------------------------------------------------------------------
+
+> Based on:
+
+	"Urel" version (Last update: 29/July/2017 (OpenFOAM 5-dev)):
+		https://bitbucket.org/akidess/urel/src/default/
+		https://www.cfd-online.com/Forums/openfoam-post-processing/86972-how-get-relative-velocities-rotating-frame-reference.html
+
+	"relU" version (Last update: 30/July/2015 (OpenFOAM 2.X.X)):
+		https://github.com/mortbauer/relU
+		http://www.cfd-online.com/Forums/openfoam-solving/71277-how-derive-relative-velocity-mrfsimplefoam.html
+		https://www.cfd-online.com/Forums/openfoam-solving/71277-how-derive-relative-velocity-mrfsimplefoam-2.html
+
+ ------------------------------------------------------------------------------
+
