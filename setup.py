@@ -138,7 +138,16 @@ setuptools.setup(
 	############################## Packages ################################
 
 	# Packages
-	packages = setuptools.find_packages(library_name),
+	packages = [
+		'fenics_topopt_foam',
+		'fenics_topopt_foam.dolfin_adjoint_extensions',
+		'fenics_topopt_foam.io',
+		'fenics_topopt_foam.mesh',
+		'fenics_topopt_foam.plugins',
+		'fenics_topopt_foam.solver',
+		'fenics_topopt_foam.types',
+		'fenics_topopt_foam.utils',
+	],
 	package_dir = {
 		library_name : library_name
 	},
