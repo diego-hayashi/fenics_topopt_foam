@@ -138,9 +138,9 @@ setuptools.setup(
 	############################## Packages ################################
 
 	# Packages
-	packages = [library_name],
+	packages = setuptools.find_packages(library_name),
 	package_dir = {
-		library_name : setuptools.find_packages(library_name),
+		library_name : library_name
 	},
 
 	############################# Requirements #############################
