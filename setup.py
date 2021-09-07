@@ -27,7 +27,7 @@
 ############################### Python libraries ###############################
 
 import itertools
-import setuptools
+import setuptools, find_packages
 
 ############################# Project information ##############################
 
@@ -140,7 +140,7 @@ setuptools.setup(
 	# Packages
 	packages = [library_name],
 	package_dir = {
-		library_name : library_name
+		library_name : find_packages(library_name),
 	},
 
 	############################# Requirements #############################
