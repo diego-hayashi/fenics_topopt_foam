@@ -12,3 +12,10 @@ include COPYING
 # Include the Git link
 include LINK.txt
 
+# Additional non-Python files
+recursive-include fenics_topopt_foam/cpp_openfoam_modules *
+recursive-include fenics_topopt_foam/cpp_openfoam_utilities *
+recursive-include fenics_topopt_foam/io/sh *
+recursive-include fenics_topopt_foam/mesh/dummy_files *
+recursive-include fenics_topopt_foam/plugins *
+
