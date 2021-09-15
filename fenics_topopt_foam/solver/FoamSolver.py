@@ -1096,6 +1096,7 @@ class FoamSolver():
 
 		residual_file = '%s/%s' %(log_folder, name_of_the_residual_file)
 
+		plot_object = None
 		if utils.checkIfFileExists(residual_file, mpi_single_processor = mpi_single_processor) == True:
 
 			if utils_fenics_mpi.runningInSerialOrFirstProcessor():
@@ -1180,7 +1181,6 @@ class FoamSolver():
 		else:
 			if silent_print == False:
 				utils.customPrint("❗File '%s' does not exist!" %(residual_file))
-			plot_object = None
 
 		return plot_object
 

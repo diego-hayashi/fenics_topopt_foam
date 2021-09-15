@@ -522,7 +522,8 @@ def generateDoFMapsOpenFOAM_FEniCS(
 	foam_coords_to_search = adjustCoordinatesOpenFOAMToFEniCS(foam_dof_coordinates, domain_type)
 
 	# Create the maps between coordinate arrays
-	tol_mapping = 0.05*mesh_hmin # 5% of tolerance
+	#tol_mapping = 0.05*mesh_hmin # 5% of tolerance
+	tol_mapping = 0.01*mesh_hmin # 1% of tolerance
 	(map_DoFs_fenics_to_foam, map_DoFs_foam_to_fenics) = utils.createMapsBetweenCoordinateArrays(fenics_dof_coordinates, foam_coords_to_search, tol_mapping = tol_mapping)
 
 	#### Previous version -- Surely works, but it can become quite slow in bigger meshes
