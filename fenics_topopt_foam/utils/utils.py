@@ -1738,8 +1738,10 @@ def createMapsBetweenCoordinateArrays(coord_array1, coord_array2, tol_mapping = 
 		# Create uniquely named folder
 		createFolderIfItDoesntExist(mapping_failure_folder)
 
-		# Mapping data
-		writeTextToFile("""
+		if utils_fenics_mpi.runningInSerialOrFirstProcessor():
+
+			# Mapping data
+			writeTextToFile("""
 ❌ ERROR: Missed %d points. Are you sure the meshes are corresponding?
 
  ------------------------------------------------------------------------------
@@ -1751,25 +1753,25 @@ Index that failed: i1 = %d
 
  ------------------------------------------------------------------------------
 
-""" 			%(
-			len(missed2),
-			convertTimeStampToTime(current_timestamp),
-			tol_mapping,
-			i1
-			), 
-			'%s/data.txt' %(mapping_failure_folder))
+""" 				%(
+				len(missed2),
+				convertTimeStampToTime(current_timestamp),
+				tol_mapping,
+				i1
+				), 
+				'%s/data.txt' %(mapping_failure_folder))
 
-		# Input arrays
-		saveNumPyArrayToFile(coord_array1, '%s/coord_array1.npy' %(mapping_failure_folder))
-		saveNumPyArrayToFile(coord_array2, '%s/coord_array2.npy' %(mapping_failure_folder))
+			# Input arrays
+			saveNumPyArrayToFile(coord_array1, '%s/coord_array1.npy' %(mapping_failure_folder))
+			saveNumPyArrayToFile(coord_array2, '%s/coord_array2.npy' %(mapping_failure_folder))
 
-		# Misses and mistakes
-		saveNumPyArrayToFile(missed2, '%s/missed2.npy' %(mapping_failure_folder))
-		saveNumPyArrayToFile(mistakes2, '%s/mistakes2.npy' %(mapping_failure_folder))
+			# Misses and mistakes
+			saveNumPyArrayToFile(missed2, '%s/missed2.npy' %(mapping_failure_folder))
+			saveNumPyArrayToFile(mistakes2, '%s/mistakes2.npy' %(mapping_failure_folder))
 
-		# Maps
-		saveNumPyArrayToFile(np.array(map_from_1_to_2), '%s/map_from_1_to_2.npy' %(mapping_failure_folder))
-		saveNumPyArrayToFile(np.array(map_from_2_to_1), '%s/map_from_2_to_1.npy' %(mapping_failure_folder))
+			# Maps
+			saveNumPyArrayToFile(np.array(map_from_1_to_2), '%s/map_from_1_to_2.npy' %(mapping_failure_folder))
+			saveNumPyArrayToFile(np.array(map_from_2_to_1), '%s/map_from_2_to_1.npy' %(mapping_failure_folder))
 
 	# If there are any mistakes
 	if len(mistakes2) > 0:

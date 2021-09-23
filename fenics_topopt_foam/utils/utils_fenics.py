@@ -511,7 +511,8 @@ def generateDoFMapsOpenFOAM_FEniCS(
 		fenics_dof_coordinates, 
 		foam_dof_coordinates, 
 		domain_type, 
-		mesh_hmin = 1.E-6 # Minimum size of element in the mesh
+		mesh_hmin = 1.E-6, # Minimum size of element in the mesh
+		tol_factor = 0.005
 		):
 	"""
 	Generates the maps between OpenFOAM and FEniCS DoFs.
@@ -523,7 +524,9 @@ def generateDoFMapsOpenFOAM_FEniCS(
 
 	# Create the maps between coordinate arrays
 	#tol_mapping = 0.05*mesh_hmin # 5% of tolerance
-	tol_mapping = 0.01*mesh_hmin # 1% of tolerance
+	#tol_mapping = 0.01*mesh_hmin # 1% of tolerance
+	#tol_mapping = 0.005*mesh_hmin # 0.5% of tolerance
+	tol_mapping = tol_factor*mesh_hmin # 0.5% of tolerance
 	(map_DoFs_fenics_to_foam, map_DoFs_foam_to_fenics) = utils.createMapsBetweenCoordinateArrays(fenics_dof_coordinates, foam_coords_to_search, tol_mapping = tol_mapping)
 
 	#### Previous version -- Surely works, but it can become quite slow in bigger meshes
@@ -790,7 +793,7 @@ def createCG1FEniCSFunction(mesh, dim = 1):
 
 #################### generateFacetMapsOpenFOAM_FEniCSCells #####################
 
-def generateFacetMapsOpenFOAM_FEniCSCells(fenics_mesh, foam_mesh, domain_type, mesh_hmin = 1.E-6):
+def generateFacetMapsOpenFOAM_FEniCSCells(fenics_mesh, foam_mesh, domain_type, mesh_hmin = 1.E-6, tol_factor = 0.005):
 	"""
 	Generates the maps between OpenFOAM and FEniCS facets.
 	"""
@@ -889,7 +892,8 @@ def generateFacetMapsOpenFOAM_FEniCSCells(fenics_mesh, foam_mesh, domain_type, m
 			foam_coords_facets = adjustCoordinatesOpenFOAMToFEniCS(foam_faces_center_coordinates, domain_type)
 
 			# Create the maps between coordinate arrays
-			tol_mapping = 0.05*mesh_hmin # 5% of tolerance
+			#tol_mapping = 0.05*mesh_hmin # 5% of tolerance
+			tol_mapping = tol_factor*mesh_hmin # Tolerance
 			(map_fenics_to_foam, map_foam_to_fenics) = utils.createMapsBetweenCoordinateArrays(fenics_mesh_coords_facets, foam_coords_facets, tol_mapping = tol_mapping)
 
 			# Go through all vertices of the OpenFOAM mesh and find the equivalent in the FEniCS mesh

@@ -87,6 +87,9 @@ class FEniCSFoamSolver():
 			# 'remove all previous files'
 			# 'rename previous problem'
 
+		# Mapping
+		tol_factor_for_mapping_FEniCS_and_OpenFOAM = 0.005, # Tolerance factor for matching FEniCS and OpenFOAM
+
 		# Projection setup
 		projection_setup = {}, 
 
@@ -172,6 +175,9 @@ class FEniCSFoamSolver():
 		# Problem folder
 		problem_folder = parameters['problem_folder']
 		self.problem_folder = problem_folder
+
+		# Tolerance factor for matching FEniCS and OpenFOAM
+		self.tol_factor_for_mapping_FEniCS_and_OpenFOAM = tol_factor_for_mapping_FEniCS_and_OpenFOAM 
 
 		# Projection setup
 		 # Set how you would like the internal FEniCS projections to operate.
@@ -865,7 +871,7 @@ as shown above for 'xyz'.
 			hmin = utils_fenics_mpi.evaluateBetweenProcessors(hmin, operation = 'minimum', proc_destination = 'all')
 
 		# Create the DoF maps
-		(self.map_DoFs_foam_to_fenics, self.map_DoFs_fenics_to_foam) = utils_fenics.generateDoFMapsOpenFOAM_FEniCS(fenics_dof_coordinates, foam_dof_coordinates, self.domain_type, mesh_hmin = hmin)
+		(self.map_DoFs_foam_to_fenics, self.map_DoFs_fenics_to_foam) = utils_fenics.generateDoFMapsOpenFOAM_FEniCS(fenics_dof_coordinates, foam_dof_coordinates, self.domain_type, mesh_hmin = hmin, tol_factor = self.tol_factor_for_mapping_FEniCS_and_OpenFOAM)
 
 		if utils_fenics_mpi.runningInParallel():
 
@@ -1265,7 +1271,7 @@ which effectively create copies of the array of values.""" %(type(fenics_functio
 			if utils_fenics_mpi.runningInParallel():
 				hmin = utils_fenics_mpi.evaluateBetweenProcessors(hmin, operation = 'minimum', proc_destination = 'all')
 
-			(self.map_foam_faces_to_fenics_cells, self.map_fenics_cells_to_foam_faces, self.map_foam_faces_to_fenics_cells_boundary_coords) = utils_fenics.generateFacetMapsOpenFOAM_FEniCSCells(self.mesh, self.foam_solver.foam_mesh, self.domain_type, mesh_hmin = hmin)
+			(self.map_foam_faces_to_fenics_cells, self.map_fenics_cells_to_foam_faces, self.map_foam_faces_to_fenics_cells_boundary_coords) = utils_fenics.generateFacetMapsOpenFOAM_FEniCSCells(self.mesh, self.foam_solver.foam_mesh, self.domain_type, mesh_hmin = hmin, tol_factor = self.tol_factor_for_mapping_FEniCS_and_OpenFOAM)
 
 		# Convert to a FEniCS Function
 		fenics_function = utils_fenics.FoamVectorBoundaryToFEniCSFunction(self.mesh, foam_vector, self.foam_solver.foam_mesh, self.map_foam_faces_to_fenics_cells, self.domain_type, type_of_FEniCS_Function = type_of_FEniCS_Function, map_foam_faces_to_fenics_cells_boundary_coords = self.map_foam_faces_to_fenics_cells_boundary_coords)
