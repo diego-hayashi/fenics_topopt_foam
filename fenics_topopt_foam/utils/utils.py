@@ -1773,6 +1773,10 @@ Index that failed: i1 = %d
 			saveNumPyArrayToFile(np.array(map_from_1_to_2), '%s/map_from_1_to_2.npy' %(mapping_failure_folder))
 			saveNumPyArrayToFile(np.array(map_from_2_to_1), '%s/map_from_2_to_1.npy' %(mapping_failure_folder))
 
+		# Wait for everyone!
+		if wait_for_everyone == True:
+			utils_fenics_mpi.waitProcessors()
+
 	# If there are any mistakes
 	if len(mistakes2) > 0:
 
