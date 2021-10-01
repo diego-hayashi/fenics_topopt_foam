@@ -20,13 +20,9 @@ preferred-citation:
   - family-names: "Silva"
     given-names: "Emı́lio Carlos Nelli"
     orcid: "http://orcid.org/0000-0003-1715-1713"
-  doi: "TBD"
+  doi: "https://doi.org/10.1007/s00158-021-03061-4"
   journal: "Structural and Multidisciplinary Optimization"
-  month: TBD
-  start: TBD # First page number
-  end: TBD # Last page number
+  month: September
   title: "Flexible framework for fluid topology optimization with OpenFOAM® and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)"
-  issue: TBD
-  volume: TBD
   year: 2021
 

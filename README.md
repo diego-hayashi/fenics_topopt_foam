@@ -23,7 +23,7 @@ Interface for implementing topology optimization with the simulation from OpenFO
 import fenics_topopt_foam
 ```
 
-**3.** There is an "`examples`" folder alongside the source code.
+**3.** There is an "`examples`" folder alongside the source code, and an auto-generated API documentation in HTML format (with [pdoc3](https://pdoc3.github.io/pdoc/)).
 
 ### │ Observations
 
@@ -65,7 +65,7 @@ Please cite the following paper in any publication in which you find FEniCS TopO
 <!--![]
 Alonso, D. H., Garcia Rodriguez, L. F., Silva, E. C. N. (2021) **Flexible framework for fluid topology optimization with OpenFOAM<sup>&reg;</sup> and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)**. Structural and Multidisciplinary Optimization TBD:TBD-TBD
 -->
-Alonso, D. H., Garcia Rodriguez, L. F., Silva, E. C. N. (2021) **Flexible framework for fluid topology optimization with OpenFOAM<sup>&reg;</sup> and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)**. Structural and Multidisciplinary Optimization. Accepted for publication.
+Alonso, D. H., Garcia Rodriguez, L. F., Silva, E. C. N. (2021) **Flexible framework for fluid topology optimization with OpenFOAM<sup>&reg;</sup> and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)**. Structural and Multidisciplinary Optimization. [https://doi.org/10.1007/s00158-021-03061-4](https://doi.org/10.1007/s00158-021-03061-4)
 
 ## 📕️ License
 
@@ -78,4 +78,6 @@ FEniCS TopOpt Foam is licensed under the GNU General Public License (GPL), versi
 > You should have received a copy of the GNU General Public License along with FEniCS TopOpt Foam. If not, see <https://www.gnu.org/licenses/>.
 
 <sub>**Disclaimer:** The development of FEniCS TopOpt Foam is neither related nor tied in any way to the development of OpenFOAM<sup>&reg;</sup> and FEniCS/dolfin-adjoint.
+
+<!-- However, there may be updates in FEniCS TopOpt Foam for more recent versions of them. </sub>-->
 
