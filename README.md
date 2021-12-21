@@ -65,7 +65,7 @@ Please cite the following paper in any publication in which you find FEniCS TopO
 <!--![]
 Alonso, D. H., Garcia Rodriguez, L. F., Silva, E. C. N. (2021) **Flexible framework for fluid topology optimization with OpenFOAM<sup>&reg;</sup> and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)**. Structural and Multidisciplinary Optimization TBD:TBD-TBD
 -->
-Alonso, D. H., Garcia Rodriguez, L. F., Silva, E. C. N. (2021) **Flexible framework for fluid topology optimization with OpenFOAM<sup>&reg;</sup> and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)**. Structural and Multidisciplinary Optimization. [https://doi.org/10.1007/s00158-021-03061-4](https://doi.org/10.1007/s00158-021-03061-4)
+Alonso, D. H., Garcia Rodriguez, L. F., Silva, E. C. N. (2021) **Flexible framework for fluid topology optimization with OpenFOAM<sup>&reg;</sup> and finite element-based high-level discrete adjoint method (FEniCS/dolfin-adjoint)**. Structural and Multidisciplinary Optimization 64, 4409-4440. [https://doi.org/10.1007/s00158-021-03061-4](https://doi.org/10.1007/s00158-021-03061-4)
 
 ## 📕️ License
 
