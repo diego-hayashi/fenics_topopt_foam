@@ -22,7 +22,7 @@ preferred-citation:
     orcid: "http://orcid.org/0000-0003-1715-1713"
   doi: "https://doi.org/10.1007/s00158-021-03061-4"
   journal: "Structural and Multidisciplinary Optimization"
-  month: September
+  month: 9
   start: 4409 # First page number
   end: 4440   # Last page number
   volume: 64
