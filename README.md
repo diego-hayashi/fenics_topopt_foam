@@ -47,7 +47,7 @@ import fenics_topopt_foam
 
  - [OpenFOAM<sup>&reg;</sup> 7.0 (openfoam.org)](https://openfoam.org/download/archive/)
  - [FEniCS 2019.1.0](https://fenicsproject.org/download/)
- - [dolfin-adjoint 2019.1.0](http://www.dolfin-adjoint.org/en/latest/download/index.html)
+ - [dolfin-adjoint 2019.1.0](http://www.dolfin-adjoint.org/en/stable/download/index.html)
  - [meshio](https://github.com/nschloe/meshio)
  - [Matplotlib](https://matplotlib.org/)
  - [mpi4py](https://github.com/mpi4py/mpi4py)
