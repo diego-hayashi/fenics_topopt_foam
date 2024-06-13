@@ -34,7 +34,12 @@ from pyadjoint.tape import annotate_tape, get_working_tape, no_annotations
 
 ################### UncoupledNonlinearVariationalSolveBlock ####################
 
-class UncoupledNonlinearVariationalSolveBlock(dolfin_adjoint.solving.SolveBlock):
+if dolfin_adjoint.__version__ == '2019.1.0':
+	dolfin_adjoint_SolveBlock = dolfin_adjoint.solving.SolveBlock
+else: # > 2019.1.0
+	dolfin_adjoint_SolveBlock = dolfin_adjoint.blocks.SolveVarFormBlock
+
+class UncoupledNonlinearVariationalSolveBlock(dolfin_adjoint_SolveBlock):
 	"""
 	Overload for the UncoupledNonlinearVariational to work with dolfin-adjoint. [dolfin-adjoint 2019.1.0]
 	Check out: /opt/Fenics/2019.1.0/lib/python3.6/site-packages/fenics_adjoint/solving.py
