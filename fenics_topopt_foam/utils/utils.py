@@ -275,8 +275,11 @@ def only_the_first_processor_executes(broadcast_result = False, wait_for_everyon
 
 			import inspect
 			num_lock_traceback = 4
-			stack_len = max(min(len(inspect.stack()) - 1, num_lock_traceback), 1)
-			lock_traceback = ' < '.join([str(inspect.stack()[2 + i].function) for i in range(stack_len)])
+			stack = inspect.stack()[1:] # retira o FrameInfo corrente
+			stack_len = min(len(stack), num_lock_traceback)
+			lock_traceback = ' < '.join([str(stack[i].function) for i in range(stack_len)])
+			#stack_len = max(min(len(inspect.stack()) - 1, num_lock_traceback), 1)
+			#lock_traceback = ' < '.join([str(inspect.stack()[2 + i].function) for i in range(stack_len)])
 			#print("[%d] FINAL lock_traceback = " %(utils_fenics_mpi.rank), lock_traceback)
 			#print("[%d] FINAL type(res).__name__ = " %(utils_fenics_mpi.rank), type(res).__name__)
 			return res
