@@ -191,8 +191,11 @@ def acquireFirstProcessorLock():
 	global _first_processor_lock_count
 	if runningInParallel():
 		num_lock_traceback = 4
-		stack_len = max(min(len(inspect.stack()) - 1, num_lock_traceback), 1)
-		lock_traceback = ' < '.join([str(inspect.stack()[2 + i].function) for i in range(stack_len)])
+		stack = inspect.stack()[1:] # retira o FrameInfo corrente
+		stack_len = min(len(stack), num_lock_traceback)
+		lock_traceback = ' < '.join([str(stack[i].function) for i in range(stack_len)])
+		#stack_len = max(min(len(inspect.stack()) - 1, num_lock_traceback), 1)
+		#lock_traceback = ' < '.join([str(inspect.stack()[2 + i].function) for i in range(stack_len)])
 		_first_processor_lock_count += [lock_traceback]
 		#print("[%d]" %(rank), " -- ACQUIRED: ", _first_processor_lock_count)
 
