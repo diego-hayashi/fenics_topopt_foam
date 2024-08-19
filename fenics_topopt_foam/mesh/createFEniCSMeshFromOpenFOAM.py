@@ -388,7 +388,7 @@ def createFEniCSMeshFromOpenFOAM(problem_folder, domain_type = '2D', time_step_n
 				ar.sort(axis = 0) # Sort the vertices of each OpenFOAM mesh face in ascending order
 				return ar
 			faces_old_vertices = foam_mesh.faces_indices()
-			faces_new_vertices = np.array([sortArray(createNewEntityFromVertices(face_vertices)) for face_vertices in faces_old_vertices])
+			faces_new_vertices = utils.create_array_from_list_of_arrays([sortArray(createNewEntityFromVertices(face_vertices)) for face_vertices in faces_old_vertices])
 
 			# OpenFOAM boundaries
 			boundaries = foam_mesh.boundaries()

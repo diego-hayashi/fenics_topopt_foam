@@ -27,7 +27,18 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 from fenics import * 
-import ufl
+
+#### UFL
+def checkLibrary(lib_name): # Check if a library exists.
+	import importlib.util
+	return type(importlib.util.find_spec(lib_name)).__name__ != 'NoneType'
+if checkLibrary('ufl'):
+	assert not checkLibrary('ufl_legacy'), " ❌️ ERROR: Sorry, you can only have one of them installed: ufl or ufl_legacy"
+	import ufl
+else:
+	assert checkLibrary('ufl_legacy'), " ❌️ ERROR: Sorry, you need to have one of them installed: ufl or ufl_legacy"
+	import ufl_legacy as ufl
+
 from dolfin_adjoint import * 
 import pyadjoint
 from pyadjoint.tape import no_annotations
@@ -470,9 +481,9 @@ def solve_forward_problem(alpha):
 		Chi = nu_T_aux/nu_; f_v1 = (Chi**3)/(Chi**3 + c_v1**3)
 		nu_T = f_v1*nu_T_aux; mu_T = rho_*nu_T
 		Omega = 1/2. * (grad(v) - grad(v).T); Omega_m = sqrt(2.*inner(Omega, Omega) + adjustment); S = Omega_m
-		f_v2 = 1. - Chi/(1 + Chi*f_v1); S_tilde = ufl.Max(S + nu_T_aux/(k_von_Karman**2*(l_wall**2 + adjustment))*f_v2, 0.3*Omega_m)
-		S_tilde_para_r = ufl.Max(S_tilde, 1.E-6)
-		r_i = ufl.Min(nu_T_aux/(S_tilde_para_r*k_von_Karman**2*(l_wall**2 + adjustment)), 10.0)
+		f_v2 = 1. - Chi/(1 + Chi*f_v1); S_tilde = ufl.max_value(S + nu_T_aux/(k_von_Karman**2*(l_wall**2 + adjustment))*f_v2, 0.3*Omega_m)
+		S_tilde_para_r = ufl.max_value(S_tilde, 1.E-6)
+		r_i = ufl.min_value(nu_T_aux/(S_tilde_para_r*k_von_Karman**2*(l_wall**2 + adjustment)), 10.0)
 		g_i = r_i + c_w2*(r_i**6 - r_i)
 		f_w = g_i*((1. + c_w3**6)/(g_i**6 + c_w3**6))**(1./6)
 		c_w1 = c_b1/k_von_Karman**2 + (1 + c_b2)/sigma

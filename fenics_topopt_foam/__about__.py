@@ -24,7 +24,7 @@
 ############################## Module information ##############################
 
 __name__ = 'fenics_topopt_foam'
-__version__ = '3.7'
+__version__ = '3.8'
 __description__ = 'Topology optimization combining OpenFOAM and FEniCS/dolfin-adjoint.'
 
 ############################ Developer information #############################

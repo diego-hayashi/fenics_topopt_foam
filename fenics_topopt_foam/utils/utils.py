@@ -1973,7 +1973,23 @@ def numpy_append_with_multiple_dimensions(*args, **kwargs):
 		else:
 			raise ValueError(" ❌ ERROR: axis == %d is not implemented!" %(axis))
 
-		return np.array(list_gather)
+		return create_array_from_list_of_arrays(list_gather)
+
+##################### create_array_from_list_of_arrays #########################
+
+def create_array_from_list_of_arrays(list_of_arrays):
+	"""
+	Create an array from a list of arrays.
+	The list of arrays may have the same size or not.
+	"""
+
+	if checkMaximumVersion(np, '1.21.6'): # Check the NumPy version
+		return np.array(list_of_arrays)
+	else:
+		try:
+			return np.array(list_of_arrays)
+		except:
+			return np.array(list_of_arrays, dtype = 'object')
 
 ######################## computeCenterCoordinates ##############################
 
@@ -2740,11 +2756,22 @@ def __remove_some_methods_from_doc(__pdoc__, __to_hide_in_the_main_page_of_the_d
 						assert method_name in class_for_hiding.__dict__, " ❌ ERROR: Method '%s' unavailable in '%s'" %(method_name, class_for_hiding.__name__)
 						__pdoc__["%s.%s" %(class_for_hiding.__name__, method_name)] = False
 
+########################### checkMaximumVersion ################################
 
+def checkMaximumVersion(lib, version_str):
+	"""
+	Check the maximum version of a library.
+	Major.Minor.Review
+	"""
 
+	lib_version_split = lib.__version__.split('.')
+	version_split = version_str.split('.')
+	assert len(lib_version_split) == len(version_split)
 
-
-
-
-
+	for i in range(len(lib_version_split)):
+		version_i = int(float(version_split[i]))
+		lib_version_i = int(float(lib_version_split[i]))
+		if version_i <= lib_version_i:
+			return False
+	return True		
 

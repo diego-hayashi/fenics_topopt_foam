@@ -195,7 +195,7 @@ class FoamMesh():
 			faces_indices = self.faces_indices()
 			coordinates = self.coordinates()
 
-			self._faces_coordinates = np.array([np.array([coordinates[vertex_index] for vertex_index in face_indices], dtype = 'float') for face_indices in faces_indices])
+			self._faces_coordinates = utils.create_array_from_list_of_arrays([np.array([coordinates[vertex_index] for vertex_index in face_indices], dtype = 'float') for face_indices in faces_indices])
 
 		return self._faces_coordinates.copy()
 

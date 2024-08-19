@@ -567,7 +567,7 @@ class Mesh3DtoFoam():
 							external_faces_thickness_side += [prepare_and_order_external_face_on_the_thickness(boundary_edges_frontside[i], boundary_edges_backside[i])]
 
 					# Convert to NumPy array
-					external_faces_thickness_side = np.array(external_faces_thickness_side)
+					external_faces_thickness_side = utils.create_array_from_list_of_arrays(external_faces_thickness_side)
 
 				return external_faces_thickness_side, map_boundary_edges_to_thickness_side
 
@@ -930,8 +930,7 @@ class Mesh3DtoFoam():
 			mesh_cells_faces = np.array([cell.entities(2) for cell in utils_fenics_mpi.get_cells(mesh)])
 
 			mesh_faces_vertices = np.array([face.entities(0) for face in utils_fenics_mpi.get_faces(mesh)])
-			mesh_faces_cells = np.array([face.entities(3) for face in utils_fenics_mpi.get_faces(mesh)])
-				# , dtype = 'object'
+			mesh_faces_cells = utils.create_array_from_list_of_arrays([face.entities(3) for face in utils_fenics_mpi.get_faces(mesh)])
 
 			def orderFaceInCell(current_face_vertices, cell_vertices, direction = 'outside'):
 				"""

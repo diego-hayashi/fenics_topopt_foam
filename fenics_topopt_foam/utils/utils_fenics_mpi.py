@@ -789,12 +789,12 @@ class UnifiedMesh():
 				elif name_entity1 == 'edge': # Edge-[entity2]
 					(map_gathered_to_unified_entity1, map_unified_to_gathered_entity1) = self.edge_map_gathered_unified()
 					counts_repeated_gathered_entity1 = self.counts_repeated_gathered_edges
-					local_entities_1_2 = np.array([edge.entities(dim_entity2).copy() for edge in edges(self.mesh)])
+					local_entities_1_2 = utils.create_array_from_list_of_arrays([edge.entities(dim_entity2).copy() for edge in get_edges(self.mesh)])
 
 				elif name_entity1 == 'face': # Face-[entity2]
 					(map_gathered_to_unified_entity1, map_unified_to_gathered_entity1) = self.face_map_gathered_unified()
 					counts_repeated_gathered_entity1 = self.counts_repeated_gathered_faces
-					local_entities_1_2 = np.array([face.entities(dim_entity2).copy() for face in faces(self.mesh)])
+					local_entities_1_2 = utils.create_array_from_list_of_arrays([face.entities(dim_entity2).copy() for face in get_faces(self.mesh)])
 
 				elif name_entity1 == 'cell': # Cell-[entity2]
 					(map_gathered_to_unified_entity1, map_unified_to_gathered_entity1) = self.cell_map_gathered_unified()

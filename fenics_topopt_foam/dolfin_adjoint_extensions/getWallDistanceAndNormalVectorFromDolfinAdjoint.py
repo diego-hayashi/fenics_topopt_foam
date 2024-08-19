@@ -25,7 +25,17 @@
 
 from fenics import *
 from dolfin_adjoint import *
-import ufl
+
+#### UFL
+def checkLibrary(lib_name): # Check if a library exists.
+	import importlib.util
+	return type(importlib.util.find_spec(lib_name)).__name__ != 'NoneType'
+if checkLibrary('ufl'):
+	assert not checkLibrary('ufl_legacy'), " ❌️ ERROR: Sorry, you can only have one of them installed: ufl or ufl_legacy"
+	import ufl
+else:
+	assert checkLibrary('ufl_legacy'), " ❌️ ERROR: Sorry, you need to have one of them installed: ufl or ufl_legacy"
+	import ufl_legacy as ufl
 
 ############### getWallDistanceAndNormalVectorFromDolfinAdjoint ################
 
