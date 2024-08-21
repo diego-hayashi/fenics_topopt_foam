@@ -92,7 +92,7 @@ class UncoupledLinearVariationalSolveBlock(dolfin_adjoint_SolveBlock):
 				if c != c_rep:
 					replace_map[c] = c_rep
 					if func is not None and c == self.func: # It substitutes everything EXCEPT for the state variable!
-						backend.Function.assign(func, c_rep)
+						fenics.Function.assign(func, c_rep)
 						replace_map[c] = func
 						self.BAK_func_state = {c : func} # [🚩] Let's save the state variable
 
