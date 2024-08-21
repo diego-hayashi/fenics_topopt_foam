@@ -35,9 +35,11 @@ def checkLibrary(lib_name): # Check if a library exists.
 if checkLibrary('ufl'):
 	assert not checkLibrary('ufl_legacy'), " ❌️ ERROR: Sorry, you can only have one of them installed: ufl or ufl_legacy"
 	import ufl
+	using_new_pyadjoint_version = False
 else:
 	assert checkLibrary('ufl_legacy'), " ❌️ ERROR: Sorry, you need to have one of them installed: ufl or ufl_legacy"
 	import ufl_legacy as ufl
+	using_new_pyadjoint_version = True
 
 from dolfin_adjoint import * 
 import pyadjoint
@@ -532,10 +534,15 @@ global current_iteration
 current_iteration = 0
 def derivative_cb_post(j, dj, current_alpha):
 	global current_iteration
+	if using_new_pyadjoint_version == True:
+		dj = dj[0]
+		current_alpha = current_alpha[0]
 	print("\n [Iteration: %d] J = %1.7e\n" %(current_iteration, j)); current_iteration += 1
 	# Save for visualization
 	alpha_viz.assign(current_alpha); alpha_pvd_file << alpha_viz
 	dj_viz.assign(dj); dj_pvd_file << dj_viz
+	if using_new_pyadjoint_version == True:
+		return [dj]
 
 # Objective function
 u_split = split(u); v = u_split[0]
